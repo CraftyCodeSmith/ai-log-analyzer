@@ -1,10 +1,11 @@
 import express, { type Application, type NextFunction, type Request, type Response } from "express";
 import {  type AnalyzeLogRequest, type AnalyzeLogResponse } from "./types/index.js";
 import { analyze } from "./services/analyze.js";
+import { configDotenv } from "dotenv";
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
-
+configDotenv();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
